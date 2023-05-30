@@ -3,7 +3,7 @@
 </script>
 <template>
     <v-container fluid>
-        <HomeChatBox title="伪原创" system="我给你一个标题, 你根据这个标题写一篇大概1000字的文章"></HomeChatBox>
+        <HomeChatBox title="伪原创" system="你根据我提供的这段话，用另一种意思再重新完成它."></HomeChatBox>
     </v-container>
 </template>
 <script lang='ts'>

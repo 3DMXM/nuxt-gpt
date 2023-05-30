@@ -1,13 +1,20 @@
 <script lang='ts' setup>
 import { marked } from 'marked';
 import 'github-markdown-css/github-markdown-light.css'
+// import { useContext } from 'vue';
 
+marked.setOptions({ mangle: false, headerIds: false })
 
 const openai = useOpenAi()
+// const { expose } = useContext()
+
+
 
 const porps = defineProps<{
     system: string
 }>()
+
+const emit = defineEmits(['customEvent'])
 
 let label = ref("")
 let content = ref("")
@@ -66,17 +73,25 @@ function copy() {
 
 }
 
+defineExpose({
+    label,
+    content
+})
+// return {
+//     content
+// }
+
 </script>
 <template>
     <div class="content">
         <v-row>
             <v-col cols="12">
                 <div> <v-btn append-icon="mdi-content-copy" @click="copy">复制</v-btn></div>
-                <v-text-field label="Label" v-model="label">
+                <v-textarea label="原内容" v-model="label" rows="1" auto-grow variant="solo">
                     <template v-slot:append-inner>
                         <v-btn variant="text" @click="test" :loading="loading">生成</v-btn>
                     </template>
-                </v-text-field>
+                </v-textarea>
                 <div class="box" ref="command">
                     <div class="markdown-body" v-html="md"></div>
                 </div>
@@ -87,7 +102,7 @@ function copy() {
 <script lang='ts'>
 
 export default {
-    name: 'content',
+    name: 'content'
 }
 </script>
 <style lang='less' scoped>

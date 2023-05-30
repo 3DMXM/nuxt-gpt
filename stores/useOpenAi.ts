@@ -16,11 +16,11 @@ export const useOpenAi = defineStore('OpenAi', {
                 headers: {
                     "Content-Type": "application/json",
                     "x-requested-with": "XMLHttpRequest",
-                    "api-key": "OPENAI_API_KEY",
+                    "api-key": "Key",
                 },
                 body: JSON.stringify({
                     "messages": messages,
-                    "max_tokens": 2000,
+                    "max_tokens": 4000,
                     "temperature": 0.7,
                     "frequency_penalty": 0,
                     "presence_penalty": 0,
