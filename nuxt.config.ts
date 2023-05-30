@@ -3,7 +3,8 @@ export default defineNuxtConfig({
     css: [
         'vuetify/styles',
         '@mdi/font/css/materialdesignicons.css',
-        'assets/main.less'
+        'assets/main.less',
+        'element-plus/theme-chalk/dark/css-vars.css'
     ],
     build: {
         transpile: ['vuetify'],
@@ -20,8 +21,15 @@ export default defineNuxtConfig({
                 ],
             },
         ],
+        '@element-plus/nuxt',
     ],
     imports: {
         dirs: ['./stores'],
     },
+    runtimeConfig: {
+        public: {
+            AZURE_OPENAI_KEY: process.env?.AZURE_OPENAI_KEY ?? "",
+            AZURE_OPENAI_ENDPOINT: process.env?.AZURE_OPENAI_ENDPOINT ?? ""
+        }
+    }
 })

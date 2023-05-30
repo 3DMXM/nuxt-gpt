@@ -3,13 +3,13 @@
 </script>
 <template>
     <v-container fluid>
-        <HomeChatBox title="游戏介绍" system="我给你一个游戏标题, 你帮我写一篇大概500字的介绍,分为1234点"></HomeChatBox>
+        <HomeChatBox title="扩写" system="我给你一段话, 你根据这段话写一篇文章, 大概1000字左右"></HomeChatBox>
     </v-container>
 </template>
 <script lang='ts'>
 
 export default {
-    name: 'game',
+    name: 'expand',
 }
 </script>
 <style lang='less' scoped></style>

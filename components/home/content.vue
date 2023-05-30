@@ -26,6 +26,7 @@ const md = computed(() => {
 })
 
 async function test() {
+
     content.value = ""
     loading.value = true
     const messages = [
@@ -36,7 +37,7 @@ async function test() {
         onmessage(ev: any) {
             const json = JSON.parse(ev.data);
             const text = json.choices[0].delta.content
-            console.log(text);
+            // console.log(text);
             if (text) {
                 content.value += text
                 // 延迟100ms执行，等待dom渲染完成
@@ -47,14 +48,21 @@ async function test() {
             }
         },
         async onopen(response: any) {
-            console.log(`onopen: ${response}`);
+            // console.log(`onopen: ${response}`);
         },
         onclose() {
             console.log("onclose");
+            // ElMessage.success("完成~")
+            ElMessage({
+                message: '完成.',
+                type: 'success',
+            })
+
             loading.value = false
         },
         onerror(err: any) {
-            console.log(`onerror: ${err}`);
+            console.log(err);
+            ElMessage.error(`错误:${err}`)
             loading.value = false
         },
     }

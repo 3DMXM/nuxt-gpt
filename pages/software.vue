@@ -9,7 +9,7 @@
 <script lang='ts'>
 
 export default {
-    name: '',
+    name: 'software',
 }
 </script>
 <style lang='less' scoped></style>

@@ -16,6 +16,13 @@ function toggleTheme() {
 
 }
 
+useHead({
+    htmlAttrs: {
+        class: 'dark'
+    }
+})
+
+
 </script>
 <template>
     <v-card>

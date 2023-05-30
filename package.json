@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --dotenv .env",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
@@ -11,9 +11,12 @@
   "devDependencies": {
     "@types/marked": "^5.0.0",
     "@types/node": "^18",
+    "element-plus": "^2.3.5",
     "nuxt": "^3.5.1"
   },
   "dependencies": {
+    "@azure/openai": "^1.0.0-beta.1",
+    "@element-plus/nuxt": "^1.0.5",
     "@fortaine/fetch-event-source": "^3.0.6",
     "@mdi/font": "^7.2.96",
     "@pinia/nuxt": "^0.4.11",
