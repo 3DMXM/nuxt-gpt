@@ -16,7 +16,7 @@ export default defineEventHandler(async (event) => {
     let req = await fetch(`https://gptify.openai.azure.com/openai/deployments/gpt-35/chat/completions?api-version=2023-03-15-preview`, {
         headers: {
             "Content-Type": "application/json",
-            "api-key": "bd33b4bde504455cae7e0582a24c0527"
+            "api-key": "OPENAI_API_KEY"
         },
         body: JSON.stringify({
             "messages": messages,
