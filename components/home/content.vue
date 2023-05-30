@@ -52,12 +52,7 @@ async function test() {
         },
         onclose() {
             console.log("onclose");
-            // ElMessage.success("完成~")
-            ElMessage({
-                message: '完成.',
-                type: 'success',
-            })
-
+            ElMessage.success("完成~")
             loading.value = false
         },
         onerror(err: any) {
@@ -78,6 +73,8 @@ function copy() {
     el.select();
     document.execCommand('copy');
     document.body.removeChild(el);
+
+    ElMessage.success("复制完成~")
 
 }
 

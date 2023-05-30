@@ -20,6 +20,7 @@ function copy() {
     el.select();
     document.execCommand('copy');
     document.body.removeChild(el);
+    ElMessage.success("全部复制完成~")
 
 }
 
