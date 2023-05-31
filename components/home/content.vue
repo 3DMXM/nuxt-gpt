@@ -52,7 +52,7 @@ async function test() {
             // console.log(`onopen: ${response}`);
         },
         onclose() {
-            console.log("onclose");
+            // console.log("onclose");
             ElMessage.success("完成~")
             loading.value = false
         },
@@ -75,7 +75,7 @@ function copy() {
     document.execCommand('copy');
     document.body.removeChild(el);
 
-    ElMessage.success("复制完成~")
+    ElMessage.success(`复制完成, 共${content.value.length}个字.`)
 
 }
 
@@ -89,8 +89,8 @@ defineExpose({
     <div class="content">
         <v-row>
             <v-col cols="12">
-                <div> <v-btn append-icon="mdi-content-copy" @click="copy">复制</v-btn></div>
-                <v-textarea label="原内容" v-model="label" rows="10" auto-grow variant="underlined">
+                <div> <v-btn variant="text" append-icon="mdi-content-copy" @click="copy">复制</v-btn></div>
+                <v-textarea label="原内容" v-model="label" rows="1" auto-grow variant="underlined">
                     <template v-slot:append-inner>
                         <v-btn variant="text" @click="test" :loading="loading">生成</v-btn>
                     </template>
@@ -115,9 +115,6 @@ export default {
     min-width: 300px;
 
     .box {
-        overflow: auto;
-        max-height: 500px;
-
         .markdown-body {
             padding: 8px 15px;
             border-radius: 3px;

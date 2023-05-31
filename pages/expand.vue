@@ -3,7 +3,7 @@
 </script>
 <template>
     <v-container fluid>
-        <HomeChatBox title="扩写" system="我给你一段话, 你根据这段话写一篇文章, 大概1000字左右"></HomeChatBox>
+        <HomeChatBox title="扩写" system="我告诉你首段文字,你在此基础上继续帮我写一篇大约1000字的文章"></HomeChatBox>
     </v-container>
 </template>
 <script lang='ts'>

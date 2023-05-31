@@ -20,7 +20,7 @@ function copy() {
     el.select();
     document.execCommand('copy');
     document.body.removeChild(el);
-    ElMessage.success("全部复制完成~")
+    ElMessage.success(`全部复制完成, 共${el.value.length}个字.`)
 
 }
 
@@ -30,10 +30,18 @@ function copy() {
         <div>
             <v-row>
                 <v-col cols="12">
-                    <h2>{{ title }}</h2>
-                    <v-btn @click="contentNum++"> + </v-btn>
-                    <v-btn @click="contentNum--"> - </v-btn>
-                    <v-btn append-icon="mdi-content-copy" @click="copy">一键复制</v-btn>
+                    <v-row class="chat-top">
+                        <v-col cols="12" md="6" xl="4" class="chat-title">
+                            <h2>{{ title }}</h2>
+                            <v-btn variant="text" @click="contentNum++"> + </v-btn>
+                            <v-btn variant="text" @click="contentNum--"> - </v-btn>
+                            <v-btn variant="text" append-icon="mdi-content-copy" @click="copy">一键复制</v-btn>
+                        </v-col>
+                        <v-col cols="12" md="6" xl="8">
+                            <slot name="title"></slot>
+                        </v-col>
+                    </v-row>
+
                 </v-col>
                 <v-col cols="12" class="chat-content">
                     <home-content v-for="index in contentNum" :key="index" :system="system" ref="content"></home-content>
@@ -54,6 +62,16 @@ export default {
     height: calc(100vh - 80px);
     overflow-y: auto;
     overflow-x: hidden;
+
+    .chat-top {
+        display: flex;
+        align-items: center;
+
+        .chat-title {
+            display: flex;
+            align-items: center;
+        }
+    }
 
     .chat-content {
         flex: 1 1 auto;
