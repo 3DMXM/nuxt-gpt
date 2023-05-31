@@ -26,7 +26,7 @@ const body_color = computed(() => {
     return theme.global.current.value.dark ? "#fff" : "#24292e"
 })
 
-async function test() {
+async function generate() {
 
     content.value = ""
     loading.value = true
@@ -81,7 +81,8 @@ function copy() {
 
 defineExpose({
     label,
-    content
+    content,
+    generate,
 })
 
 </script>
@@ -92,7 +93,7 @@ defineExpose({
                 <div> <v-btn variant="text" append-icon="mdi-content-copy" @click="copy">复制</v-btn></div>
                 <v-textarea label="原内容" v-model="label" rows="1" auto-grow variant="underlined">
                     <template v-slot:append-inner>
-                        <v-btn variant="text" @click="test" :loading="loading">生成</v-btn>
+                        <v-btn variant="text" @click="generate" :loading="loading">生成</v-btn>
                     </template>
                 </v-textarea>
                 <div class="box" ref="command">

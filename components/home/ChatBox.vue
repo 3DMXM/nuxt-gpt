@@ -24,6 +24,13 @@ function copy() {
 
 }
 
+
+function generate() {
+    content.value.forEach((item: any) => {
+        item.generate()
+    })
+}
+
 </script>
 <template>
     <div class="chat-box">
@@ -36,6 +43,7 @@ function copy() {
                             <v-btn variant="text" @click="contentNum++"> + </v-btn>
                             <v-btn variant="text" @click="contentNum--"> - </v-btn>
                             <v-btn variant="text" append-icon="mdi-content-copy" @click="copy">一键复制</v-btn>
+                            <v-btn variant="text" append-icon="mdi-star-david" @click="generate">一键生成</v-btn>
                         </v-col>
                         <v-col cols="12" md="6" xl="8">
                             <slot name="title"></slot>
