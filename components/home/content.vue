@@ -1,20 +1,18 @@
 <script lang='ts' setup>
 import { marked } from 'marked';
 import 'github-markdown-css/github-markdown-light.css'
-// import { useContext } from 'vue';
+import { useTheme } from 'vuetify'
 
 marked.setOptions({ mangle: false, headerIds: false })
 
 const openai = useOpenAi()
-// const { expose } = useContext()
-
+const theme = useTheme()
 
 
 const porps = defineProps<{
     system: string
 }>()
 
-const emit = defineEmits(['customEvent'])
 
 let label = ref("")
 let content = ref("")
@@ -23,6 +21,9 @@ let command = ref<any>()
 
 const md = computed(() => {
     return marked(content.value)
+})
+const body_color = computed(() => {
+    return theme.global.current.value.dark ? "#fff" : "#24292e"
 })
 
 async function test() {
@@ -82,9 +83,6 @@ defineExpose({
     label,
     content
 })
-// return {
-//     content
-// }
 
 </script>
 <template>
@@ -92,7 +90,7 @@ defineExpose({
         <v-row>
             <v-col cols="12">
                 <div> <v-btn append-icon="mdi-content-copy" @click="copy">复制</v-btn></div>
-                <v-textarea label="原内容" v-model="label" rows="1" auto-grow variant="solo">
+                <v-textarea label="原内容" v-model="label" rows="10" auto-grow variant="underlined">
                     <template v-slot:append-inner>
                         <v-btn variant="text" @click="test" :loading="loading">生成</v-btn>
                     </template>
@@ -114,19 +112,19 @@ export default {
 .content {
     padding: 1rem;
     flex: 1 1 auto;
-}
+    min-width: 300px;
 
-.box {
-    overflow: auto;
-    max-height: 500px;
+    .box {
+        overflow: auto;
+        max-height: 500px;
 
-    .markdown-body {
-        padding: 8px 15px;
-        border-radius: 3px;
-        display: inline-block;
-        background-color: transparent;
-        color: white;
+        .markdown-body {
+            padding: 8px 15px;
+            border-radius: 3px;
+            display: inline-block;
+            background-color: transparent;
+            color: v-bind(body_color);
+        }
     }
-
 }
 </style>

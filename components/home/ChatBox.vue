@@ -51,14 +51,15 @@ export default {
 </script>
 <style lang='less' scoped>
 .chat-box {
-    // display: flex;
-    // flex-direction: column;
     height: calc(100vh - 80px);
+    overflow-y: auto;
+    overflow-x: hidden;
 
     .chat-content {
         flex: 1 1 auto;
         display: flex;
         flex-direction: row;
+        overflow: auto;
     }
 }
 </style>
