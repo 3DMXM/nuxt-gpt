@@ -11,12 +11,26 @@ export const useOpenAi = defineStore('OpenAi', {
     },
     actions: {
         async chatCompletions(messages: any, onFuns: any) {
+            const obj = [
+                {
+                    key: config().AZURE_OPENAI_KEY,
+                    url: 'https://gptify.openai.azure.com/openai/deployments/gpt-35/chat/completions?api-version=2023-03-15-preview'
+                },
+                {
+                    key: config().AZURE_OPENAI_KEY2,
+                    url: 'https://gptifywe.openai.azure.com/openai/deployments/gpt/chat/completions?api-version=2023-03-15-preview'
+                }
+            ]
+
+            const randomValue = obj[Math.floor(Math.random() * obj.length)];
+
+
             const fetchOptions = {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                     "x-requested-with": "XMLHttpRequest",
-                    "api-key": config().AZURE_OPENAI_KEY ?? "",
+                    "api-key": randomValue.key,
                 },
                 body: JSON.stringify({
                     "messages": messages,
@@ -29,7 +43,9 @@ export const useOpenAi = defineStore('OpenAi', {
                     "stream": true,
                 }),
             }
-            fetchEventSource("https://gptify.openai.azure.com/openai/deployments/gpt-35/chat/completions?api-version=2023-03-15-preview", {
+
+
+            fetchEventSource(randomValue.url, {
                 ...fetchOptions,
                 ...onFuns,
             })
