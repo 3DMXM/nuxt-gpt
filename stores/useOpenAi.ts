@@ -42,6 +42,7 @@ export const useOpenAi = defineStore('OpenAi', {
                     "stop": null,
                     "stream": true,
                 }),
+                openWhenHidden: true,
             }
 
 
