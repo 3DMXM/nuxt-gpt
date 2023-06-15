@@ -14,11 +14,11 @@ export const useOpenAi = defineStore('OpenAi', {
             const obj = [
                 {
                     key: config().AZURE_OPENAI_KEY,
-                    url: 'https://gptify.openai.azure.com/openai/deployments/gpt-35/chat/completions?api-version=2023-03-15-preview'
+                    url: config().AZURE_OPENAI_ENDPOINT
                 },
                 {
                     key: config().AZURE_OPENAI_KEY2,
-                    url: 'https://gptifywe.openai.azure.com/openai/deployments/gpt/chat/completions?api-version=2023-03-15-preview'
+                    url: config().AZURE_OPENAI_ENDPOINT2
                 }
             ]
 

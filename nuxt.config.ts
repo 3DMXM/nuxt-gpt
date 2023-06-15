@@ -29,7 +29,9 @@ export default defineNuxtConfig({
     runtimeConfig: {
         public: {
             AZURE_OPENAI_KEY: process.env?.AZURE_OPENAI_KEY ?? "",
+            AZURE_OPENAI_ENDPOINT: process.env.AZURE_OPENAI_ENDPOINT ?? "",
             AZURE_OPENAI_KEY2: process.env?.AZURE_OPENAI_KEY2 ?? "",
+            AZURE_OPENAI_ENDPOINT2: process.env.AZURE_OPENAI_ENDPOINT2 ?? "",
         }
     }
 })
