@@ -35,7 +35,7 @@ export const useOpenAi = defineStore('OpenAi', {
                 body: JSON.stringify({
                     "messages": messages,
                     "max_tokens": 4000,
-                    "temperature": 0.7,
+                    "temperature": 0.9,
                     "frequency_penalty": 0,
                     "presence_penalty": 0,
                     "top_p": 0.95,
