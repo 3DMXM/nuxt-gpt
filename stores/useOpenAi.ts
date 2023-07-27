@@ -19,6 +19,10 @@ export const useOpenAi = defineStore('OpenAi', {
                 {
                     key: config().AZURE_OPENAI_KEY2,
                     url: config().AZURE_OPENAI_ENDPOINT2
+                },
+                {
+                    key: config().AZURE_OPENAI_KEY3,
+                    url: config().AZURE_OPENAI_ENDPOINT3
                 }
             ]
 
@@ -35,7 +39,8 @@ export const useOpenAi = defineStore('OpenAi', {
                 body: JSON.stringify({
                     "messages": messages,
                     "max_tokens": 4000,
-                    "temperature": 0.9,
+                    // 随机 0.6 - 1.0                    
+                    "temperature": Math.random() * 0.4 + 0.6,
                     "frequency_penalty": 0,
                     "presence_penalty": 0,
                     "top_p": 0.95,

@@ -10,6 +10,7 @@ export default defineNuxtConfig({
         transpile: ['vuetify'],
     },
     modules: [
+        '@nuxt-alt/proxy',
         [
             '@pinia/nuxt',
             {
@@ -32,6 +33,28 @@ export default defineNuxtConfig({
             AZURE_OPENAI_ENDPOINT: process.env.AZURE_OPENAI_ENDPOINT ?? "",
             AZURE_OPENAI_KEY2: process.env?.AZURE_OPENAI_KEY2 ?? "",
             AZURE_OPENAI_ENDPOINT2: process.env.AZURE_OPENAI_ENDPOINT2 ?? "",
+            AZURE_OPENAI_KEY3: process.env?.AZURE_OPENAI_KEY3 ?? "",
+            AZURE_OPENAI_ENDPOINT3: process.env.AZURE_OPENAI_ENDPOINT3 ?? "",
         }
-    }
+    },
+
+    proxy: {
+        proxies: {
+            '/gptifyjp': {
+                target: 'https://gptifyjp.openai.azure.com',
+                changeOrigin: true,
+                rewrite: (path: any) => path.replace(/^\/gptifyjp/, '')
+            },
+            '/gptifywe': {
+                target: 'https://gptifywe.openai.azure.com',
+                changeOrigin: true,
+                rewrite: (path: any) => path.replace(/^\/gptifywe/, '')
+            },
+            '/gptify': {
+                target: 'https://gptify.openai.azure.com',
+                changeOrigin: true,
+                rewrite: (path: any) => path.replace(/^\/gptify/, '')
+            },
+        }
+    },
 })
