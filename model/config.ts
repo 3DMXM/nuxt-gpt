@@ -9,5 +9,7 @@ export const config = () => {
         AZURE_OPENAI_ENDPOINT2: config.public.AZURE_OPENAI_ENDPOINT2,
         AZURE_OPENAI_KEY3: config.public.AZURE_OPENAI_KEY3,
         AZURE_OPENAI_ENDPOINT3: config.public.AZURE_OPENAI_ENDPOINT3,
+        LOGIN_PASSWORD: config.public.LOGIN_PASSWORD,
+        LOGIN_USERNAME: config.public.LOGIN_USERNAME,
     }
 }
