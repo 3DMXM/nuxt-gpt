@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     build: {
         transpile: ['vuetify'],
     },
+    ssr: false,
     modules: [
         '@nuxt-alt/proxy',
         [

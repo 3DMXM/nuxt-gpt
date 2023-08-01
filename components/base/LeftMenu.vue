@@ -12,6 +12,7 @@ const main = useMain()
             <v-list-item title="游戏工具" to="/game"></v-list-item>
             <v-list-item title="软件工具" to="/software"></v-list-item>
             <v-list-item title="自定义工具" to="/customize"></v-list-item>
+            <v-list-item title="GPT4 测试" to="/gpt4"></v-list-item>
         </v-list>
     </v-navigation-drawer>
 </template>
