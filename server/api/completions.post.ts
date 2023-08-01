@@ -13,6 +13,10 @@ export default defineEventHandler(async (event) => {
         {
             key: config().AZURE_OPENAI_KEY2,
             url: config().AZURE_OPENAI_ENDPOINT2
+        },
+        {
+            key: config().AZURE_OPENAI_KEY3,
+            url: config().AZURE_OPENAI_ENDPOINT3
         }
     ]
 
@@ -48,7 +52,7 @@ export default defineEventHandler(async (event) => {
         body: JSON.stringify({
             "messages": messages,
             "max_tokens": 4000,
-            "temperature": 0.7,
+            "temperature": 0.9,
             "frequency_penalty": 0,
             "presence_penalty": 0,
             "top_p": 0.95,
