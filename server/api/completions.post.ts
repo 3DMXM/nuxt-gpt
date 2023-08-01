@@ -1,4 +1,4 @@
-// 忘了干嘛的了
+// 给技术提供的接口
 
 import axios from 'axios'
 import { config } from '@/model/config'

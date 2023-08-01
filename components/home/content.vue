@@ -36,17 +36,24 @@ async function generate() {
     ]
     const onFuns = {
         onmessage(ev: any) {
-            const json = JSON.parse(ev.data);
-            const text = json.choices[0].delta.content
-            // console.log(text);
-            if (text) {
-                content.value += text
-                // 延迟100ms执行，等待dom渲染完成
-                setTimeout(() => {
-                    // 滚动条滚动到底部
-                    command.value!.scrollTop = command.value?.scrollHeight || 0
-                }, 100)
+            try {
+                const json = JSON.parse(ev.data);
+                const text = json.choices[0].delta.content
+                // console.log(text);
+                if (text) {
+                    content.value += text
+                    // 延迟100ms执行，等待dom渲染完成
+                    setTimeout(() => {
+                        // 滚动条滚动到底部
+                        command.value!.scrollTop = command.value?.scrollHeight || 0
+                    }, 100)
+                }
+            } catch (error) {
+                console.log(error);
+                ElMessage.error(`错误:${error}`)
             }
+
+
         },
         async onopen(response: any) {
             // console.log(`onopen: ${response}`);
