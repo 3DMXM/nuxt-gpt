@@ -1,4 +1,7 @@
-// 忘了干嘛的了
+/**
+ * 给技术开放的接口 
+ * 
+ */
 
 import axios from 'axios'
 import { config } from '@/model/config'
@@ -42,7 +45,6 @@ export default defineEventHandler(async (event) => {
 
     console.log(messages);
 
-
     let data = await fetch(randomValue.url, {
         method: "POST",
         headers: {
@@ -51,8 +53,8 @@ export default defineEventHandler(async (event) => {
         },
         body: JSON.stringify({
             "messages": messages,
-            "max_tokens": 4000,
-            "temperature": 0.9,
+            "max_tokens": 2048,
+            "temperature": 0.7,
             "frequency_penalty": 0,
             "presence_penalty": 0,
             "top_p": 0.95,
