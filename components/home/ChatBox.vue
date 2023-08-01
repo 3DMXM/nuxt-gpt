@@ -31,6 +31,11 @@ function generate() {
     })
 }
 
+function add() {
+    contentNum.value++
+    if (contentNum.value > 2) contentNum.value = 2
+}
+
 </script>
 <template>
     <div class="chat-box">
@@ -40,7 +45,7 @@ function generate() {
                     <v-row class="chat-top">
                         <v-col cols="12" md="6" xl="4" class="chat-title">
                             <h2>{{ title }}</h2>
-                            <v-btn variant="text" @click="contentNum++"> + </v-btn>
+                            <v-btn variant="text" @click="add"> + </v-btn>
                             <v-btn variant="text" @click="contentNum--"> - </v-btn>
                             <v-btn variant="text" append-icon="mdi-content-copy" @click="copy">一键复制</v-btn>
                             <v-btn variant="text" append-icon="mdi-star-david" @click="generate">一键生成</v-btn>
