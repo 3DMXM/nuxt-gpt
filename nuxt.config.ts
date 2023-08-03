@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     build: {
         transpile: ['vuetify'],
     },
-    ssr: false,
+    ssr: process.env.NODE_ENV != 'development',
     modules: [
         '@nuxt-alt/proxy',
         [
@@ -41,23 +41,23 @@ export default defineNuxtConfig({
         }
     },
 
-    proxy: {
-        proxies: {
-            '/gptifyjp': {
-                target: 'https://gptifyjp.openai.azure.com',
-                changeOrigin: true,
-                rewrite: (path: any) => path.replace(/^\/gptifyjp/, '')
-            },
-            '/gptifywe': {
-                target: 'https://gptifywe.openai.azure.com',
-                changeOrigin: true,
-                rewrite: (path: any) => path.replace(/^\/gptifywe/, '')
-            },
-            '/gptify': {
-                target: 'https://gptify.openai.azure.com',
-                changeOrigin: true,
-                rewrite: (path: any) => path.replace(/^\/gptify/, '')
-            },
-        }
-    },
+    // proxy: {
+    //     proxies: {
+    //         '/gptifyjp': {
+    //             target: 'https://gptifyjp.openai.azure.com',
+    //             changeOrigin: true,
+    //             rewrite: (path: any) => path.replace(/^\/gptifyjp/, '')
+    //         },
+    //         '/gptifywe': {
+    //             target: 'https://gptifywe.openai.azure.com',
+    //             changeOrigin: true,
+    //             rewrite: (path: any) => path.replace(/^\/gptifywe/, '')
+    //         },
+    //         '/gptify': {
+    //             target: 'https://gptify.openai.azure.com',
+    //             changeOrigin: true,
+    //             rewrite: (path: any) => path.replace(/^\/gptify/, '')
+    //         },
+    //     }
+    // },
 })
