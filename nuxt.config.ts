@@ -36,6 +36,7 @@ export default defineNuxtConfig({
             AZURE_OPENAI_ENDPOINT2: process.env.AZURE_OPENAI_ENDPOINT2 ?? "",
             AZURE_OPENAI_KEY3: process.env?.AZURE_OPENAI_KEY3 ?? "",
             AZURE_OPENAI_ENDPOINT3: process.env.AZURE_OPENAI_ENDPOINT3 ?? "",
+            AZURE_OPENAI_GPT4_ENDPOINT: process.env.AZURE_OPENAI_GPT4_ENDPOINT ?? "",
             LOGIN_PASSWORD: process.env.LOGIN_PASSWORD ?? "",
             LOGIN_USERNAME: process.env.LOGIN_USERNAME ?? "",
         }
