@@ -2,7 +2,7 @@
 import axios from 'axios'
 import { ElMessage } from 'element-plus';
 
-const permissions = useCookie<boolean>('user')
+const permissions = useCookie<boolean>('user2')
 
 // console.log(permissions);
 
